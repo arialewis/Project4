@@ -20,6 +20,7 @@ import javax.swing.filechooser.FileSystemView;
 import com.sun.glass.ui.Menu;
 import com.sun.glass.ui.MenuBar;
 import java.io.*;
+import MapData.MapData;;
 
 /**
  * Primary window of the interface
@@ -46,6 +47,7 @@ public class MesonetFrame extends JFrame
 	private JPanel buttonHolder;
 	private JButton calculate;
 	private JButton exit;
+	MapData stats;
 	
 	/**
 	 *  Complete the menu creation process and the impementatio of the open menu listener
@@ -125,8 +127,7 @@ public class MesonetFrame extends JFrame
 		
 		fmenuBar.getMenu(0).getItem(0).addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	// TODO: change the opSign, clear the error message and compute result.
-				File f = new File("C:\\Users\\alewi\\Documents\\data");
+ 				File f = new File("C:\\Users\\alewi\\Documents\\data");
 				JFileChooser chooser = new JFileChooser(f, FileSystemView.getFileSystemView());
 				//chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("MDF files", "MDF");
@@ -149,29 +150,13 @@ public class MesonetFrame extends JFrame
 		
 		calculate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	// TODO: change the opSign, clear the error message and compute result.
-				File f = new File("C:\\Users\\alewi\\Documents\\data");
-				JFileChooser chooser = new JFileChooser(f, FileSystemView.getFileSystemView());
-				//chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("MDF files", "MDF");
-				chooser.setFileFilter(filter);
-				chooser.setDialogTitle("Open");
-	
-			
-			
-				//chooser.addChoosableFileFilter(filter);
-
-				int returnValue = chooser.showOpenDialog(null);
+ 
 				
-				if (returnValue == JFileChooser.APPROVE_OPTION)
-				{
-				//	File filename = new File(chooser.getSelectedFile(), null);
-				}
 	           	
             } 
         }); 
 	
-		
+		exit.
 		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
