@@ -121,6 +121,8 @@ public class MesonetFrame extends JFrame
 
 		add(buttonHolder, BorderLayout.SOUTH);
 		
+	
+		
 		fmenuBar.getMenu(0).getItem(0).addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	// TODO: change the opSign, clear the error message and compute result.
@@ -139,11 +141,36 @@ public class MesonetFrame extends JFrame
 				
 				if (returnValue == JFileChooser.APPROVE_OPTION)
 				{
-					File filename = new File(chooser.getSelectedFile(), null);
+				//	File filename = new File(chooser.getSelectedFile(), null);
 				}
 	           	
             } 
         }); 
+		
+		calculate.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	// TODO: change the opSign, clear the error message and compute result.
+				File f = new File("C:\\Users\\alewi\\Documents\\data");
+				JFileChooser chooser = new JFileChooser(f, FileSystemView.getFileSystemView());
+				//chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("MDF files", "MDF");
+				chooser.setFileFilter(filter);
+				chooser.setDialogTitle("Open");
+	
+			
+			
+				//chooser.addChoosableFileFilter(filter);
+
+				int returnValue = chooser.showOpenDialog(null);
+				
+				if (returnValue == JFileChooser.APPROVE_OPTION)
+				{
+				//	File filename = new File(chooser.getSelectedFile(), null);
+				}
+	           	
+            } 
+        }); 
+	
 		
 		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

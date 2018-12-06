@@ -24,7 +24,6 @@ public class TablePanel extends JPanel
 	JTable table;
 	JScrollPane scroller;
 	// Use BorderLayout
-	JTable two;
 	// Implements layout of components
 
 	
