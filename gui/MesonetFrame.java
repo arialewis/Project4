@@ -17,9 +17,12 @@ import javax.swing.JTextArea;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
+import com.sun.glass.ui.Cursor;
 import com.sun.glass.ui.Menu;
 import com.sun.glass.ui.MenuBar;
 import java.io.*;
+import java.text.ParseException;
+
 import MapData.MapData;;
 
 /**
@@ -127,14 +130,26 @@ public class MesonetFrame extends JFrame
 		
 		fmenuBar.getMenu(0).getItem(0).addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
- 				File f = new File("C:\\Users\\alewi\\Documents\\data");
+            	
+            	//choose right file location
+ 				File f = new File("C:\\Users\\alewi\\eclipse-workspace\\project4\\data");
 				JFileChooser chooser = new JFileChooser(f, FileSystemView.getFileSystemView());
 				//chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("MDF files", "MDF");
 				chooser.setFileFilter(filter);
 				chooser.setDialogTitle("Open");
 	
-			
+				 try {
+					stats = new MapData(chooser.getCurrentDirectory());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+				   
+					e1.printStackTrace();
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
 			
 				//chooser.addChoosableFileFilter(filter);
 
@@ -156,7 +171,15 @@ public class MesonetFrame extends JFrame
             } 
         }); 
 	
-		exit.
+		exit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+ 
+            	//close frame if selected
+				
+	           	System.exit(0);
+            } 
+        }); 
+		
 		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);

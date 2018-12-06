@@ -34,8 +34,11 @@ public class TablePanel extends JPanel
 		String header[] = {"Station", "Parameter", "Statistics", "Value", 
 				"Reporting Stations", "Date"};
 		
-		String data[][] = {{"0", "0", "0", "0", "0", "0"}, {"0", "0", "0", "0", "0", "0",}};
-		
+		String data[][] = {{"0", "0", "0", "0", "0", "0"}, {"0", "0", "0", "0", "0", "0",},
+				{"0", "0", "0", "0", "0", "0"}, {"0", "0", "0", "0", "0", "0",},
+				{"0", "0", "0", "0", "0", "0"}, {"0", "0", "0", "0", "0", "0",},
+				{"0", "0", "0", "0", "0", "0"}, {"0", "0", "0", "0", "0", "0",}};
+			
 		table = new JTable(data, header);
 		
 		table.setBounds(0,0,200,300);          

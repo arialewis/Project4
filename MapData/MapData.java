@@ -39,7 +39,7 @@ public class MapData {
 	/*
 	 *  Number of stations in the dataset
 	 */
-	Integer numberOfStations = new Integer(null);
+	Integer numberOfStations;
 	
 	/*
 	 *  Final variables for the data parameters
@@ -97,6 +97,7 @@ public class MapData {
 	
 	public MapData(File currentDirectory)  throws IOException, ParseException  {
 		// TODO Auto-generated constructor stub
+		fileName = currentDirectory.toString();
 		parseFile();
 	}
 
