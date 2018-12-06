@@ -1,5 +1,6 @@
 package MapData;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.*;
 import java.io.IOException;
@@ -94,6 +95,11 @@ public class MapData {
 				
 	}
 	
+	public MapData(File currentDirectory)  throws IOException, ParseException  {
+		// TODO Auto-generated constructor stub
+		parseFile();
+	}
+
 	/**
 	 *  Returns a string of the date with the format "data/YYYYMMDDHHMM.mdf"
 	 *  
