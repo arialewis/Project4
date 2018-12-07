@@ -23,7 +23,7 @@ import com.sun.glass.ui.MenuBar;
 import java.io.*;
 import java.text.ParseException;
 
-import MapData.MapData;;
+import MapData.MapData;
 
 /**
  * Primary window of the interface
@@ -132,45 +132,58 @@ public class MesonetFrame extends JFrame
             public void actionPerformed(ActionEvent e) {
             	
             	//choose right file location
- 				File f = new File("C:\\Users\\alewi\\eclipse-workspace\\project4\\data");
-				JFileChooser chooser = new JFileChooser(f, FileSystemView.getFileSystemView());
+ 				//File f = new File("C:\\Users\\alewi\\eclipse-workspace\\project4\\data");
+				JFileChooser chooser = new JFileChooser("C:\\Users\\alewi\\Documents\\data", FileSystemView.getFileSystemView());
 				//chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("MDF files", "MDF");
 				chooser.setFileFilter(filter);
 				chooser.setDialogTitle("Open");
 	
-				 try {
-					stats = new MapData(chooser.getCurrentDirectory());
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-				   
-					e1.printStackTrace();
-				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-
-			
 				//chooser.addChoosableFileFilter(filter);
-
+				
 				int returnValue = chooser.showOpenDialog(null);
 				
+				
+				// System.out.println(chooser..toString());
 				if (returnValue == JFileChooser.APPROVE_OPTION)
 				{
-				//	File filename = new File(chooser.getSelectedFile(), null);
+					 try {
+						stats = new MapData(chooser.getSelectedFile());
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+					  
+						e1.printStackTrace();
+					} catch (ParseException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 				}
 	           	
             } 
         }); 
-		
+
+	
+		// Add actionlistener to calculate button
 		calculate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
  
-				
-	           	
+            	if(paramPanel.tair.isSelected() & statsPanel.isMaximumSizeSet())
+            	{
+            
+/*                    tablePanel.data[0][1] = (1, 0, 0);
+                    tablePanel.data[0][1] = ("TAIR", 0, 1);
+                    tablePanel.data[0][1] = ("MAXIMUM", 0, 2);
+			        tablePanel.data[0][1] = (stats.getStatistics(StatsType.MAXIMUM, "TAIR").getValue()), 0, 3);
+			        tablePanel.data[0][1] = (stats.getStatistics(StatsType.MAXIMUM, "TAIR").getNumberOfReportingStations()), 0, 4);
+			        tablePanel.data[0][1] = ((stats.getStatistics(StatsType.MAXIMUM, "TAIR").getUTCDateTimeString()), 0, 5);
+*/
+            	}
+            	
             } 
         }); 
 	
+		// Add actionlistener to exit button
 		exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
  

@@ -97,7 +97,7 @@ public class MapData {
 	
 	public MapData(File currentDirectory)  throws IOException, ParseException  {
 		// TODO Auto-generated constructor stub
-		fileName = currentDirectory.toString();
+		this.fileName = currentDirectory.toString();
 		parseFile();
 	}
 
@@ -197,8 +197,6 @@ public class MapData {
 		// Read in third row containing header
 		header = br.readLine();
 			   
-		
-		strg = br.readLine();
 		
 		// Parse third row headers
 		parseParamHeader(header);

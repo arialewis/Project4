@@ -25,7 +25,7 @@ public class StatisticsPanel extends JPanel implements ActionListener
 {
 
 	/**
-	 * 
+	 * Make a JPanel for the Parameter options
 	 */
 	private static final long serialVersionUID = 1L;
 	JRadioButton min;

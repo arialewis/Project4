@@ -74,7 +74,7 @@ public class Statistics extends Observation implements DateTimeComparable  {
 		SimpleDateFormat date = new SimpleDateFormat(DATE_TIME_FORMAT);
 		date.setTimeZone(TimeZone.getTimeZone("UTC"));
 		
-		Date dateOb = date.parse(dateTimeStr);
+		Date dateOb = date.parse(dateTimeStr.trim());
 		
 		GregorianCalendar dateGregCal = new GregorianCalendar();
 		dateGregCal.setTimeZone(TimeZone.getTimeZone("UTC"));
