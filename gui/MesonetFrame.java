@@ -171,15 +171,44 @@ public class MesonetFrame extends JFrame
             	if(paramPanel.tair.isSelected() & statsPanel.isMaximumSizeSet())
             	{
             
-/*                    tablePanel.data[0][1] = (1, 0, 0);
+            		tablePanel.data[0][1] = (1, 0, 0);
                     tablePanel.data[0][1] = ("TAIR", 0, 1);
                     tablePanel.data[0][1] = ("MAXIMUM", 0, 2);
 			        tablePanel.data[0][1] = (stats.getStatistics(StatsType.MAXIMUM, "TAIR").getValue()), 0, 3);
 			        tablePanel.data[0][1] = (stats.getStatistics(StatsType.MAXIMUM, "TAIR").getNumberOfReportingStations()), 0, 4);
 			        tablePanel.data[0][1] = ((stats.getStatistics(StatsType.MAXIMUM, "TAIR").getUTCDateTimeString()), 0, 5);
-*/
+
             	}
             	
+            	if(paramPanel.tair.isSelected() & statsPanel.isAverageSizeSet())
+            	{
+            
+            		tablePanel.data[0][1] = (1, 0, 0);
+                    tablePanel.data[0][1] = ("TAIR", 0, 1);
+                    tablePanel.data[0][1] = ("AVERAGE", 0, 2);
+			        tablePanel.data[0][1] = (stats.getStatistics(StatsType.AVERAGE, "TAIR").getValue()), 0, 3);
+			        tablePanel.data[0][1] = (stats.getStatistics(StatsType.AVERAGE, "TAIR").getNumberOfReportingStations()), 0, 4);
+			        tablePanel.data[0][1] = ((stats.getStatistics(StatsType.AVERAGE, "TAIR").getUTCDateTimeString()), 0, 5);
+
+            	}
+   
+            	if(paramPanel.tair.isSelected() & statsPanel.isMinimumSizeSet())
+            	{
+            
+            		tablePanel.data[0][1] = (1, 0, 0);
+                    tablePanel.data[0][1] = ("TAIR", 0, 1);
+                    tablePanel.data[0][1] = ("MINIMUM", 0, 2);
+			        tablePanel.data[0][1] = (stats.getStatistics(StatsType.MINIMUM, "TAIR").getValue()), 0, 3);
+			        tablePanel.data[0][1] = (stats.getStatistics(StatsType.MINIMUM, "TAIR").getNumberOfReportingStations()), 0, 4);
+			        tablePanel.data[0][1] = ((stats.getStatistics(StatsType.MINIMUM, "TAIR").getUTCDateTimeString()), 0, 5);
+
+            	}
+   
+            	paramPanel.remove(table);
+            	paramPanel.add(table, BorderLayout.WEST);
+                paramPanel.revalidate();
+            	paramPanel.repaint();
+
             } 
         }); 
 	
